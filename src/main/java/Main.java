@@ -1,11 +1,18 @@
 import java.io.File;
+import java.util.concurrent.ForkJoinPool;
 
 public class Main {
     public static void main(String[] args) {
+
+
         String folderPath = "C:\\Users\\user\\Desktop\\Cutting 2.1.53";
         File file = new File(folderPath);
 
-        System.out.println(getFolderSize(file));
+        FolderSizeCalculator calculator = new FolderSizeCalculator(file);
+        ForkJoinPool pool = new ForkJoinPool();
+        long size = pool.invoke(calculator);
+
+        System.out.println(size);
     }
 
     public static long getFolderSize(File folder) {
