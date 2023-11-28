@@ -4,6 +4,7 @@ import java.util.concurrent.ForkJoinPool;
 
 public class Main {
     public static void main(String[] args) {
+//        String[] argums = {"-d", "C:\\Users\\user\\Desktop\\Cutting 2.1.53", "-l", "54G"};
         ParametersBag bag = new ParametersBag(args);
 
         String folderPath = bag.getPath();
