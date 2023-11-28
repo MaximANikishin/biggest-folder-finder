@@ -4,10 +4,13 @@ import java.util.concurrent.ForkJoinPool;
 
 public class Main {
     public static void main(String[] args) {
+        ParametersBag bag = new ParametersBag(args);
 
-        String folderPath = "C:\\Users\\user\\Desktop\\Cutting 2.1.53";
+        String folderPath = bag.getPath();
+        long sizeLimit = bag.getLimit();
+
         File file = new File(folderPath);
-        Node root = new Node(file);
+        Node root = new Node(file, sizeLimit);
 
         FolderSizeCalculator calculator = new FolderSizeCalculator(root);
         ForkJoinPool pool = new ForkJoinPool();
